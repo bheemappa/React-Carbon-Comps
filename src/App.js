@@ -1,27 +1,26 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import { Button } from 'carbon-components-react'
+import './App.scss'
+import { Content } from 'carbon-components-react/es/components/UIShell'
+import Header from './components/Header'
+import { Route, Switch } from 'react-router-dom'
+import LandingPage from './content/LandingPage'
+import DashboardPage from './content/DashboardPage'
 class App extends Component {
-  render() {
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer">
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+      <>
+        <Header />
+        <Content>
+          <Switch>
+            <Route exact path='/' component={LandingPage} />
+            <Route path='/DashboardPage' component={DashboardPage} />
+          </Switch>
+        </Content>
+      </>
+    )
   }
 }
 
-export default App;
+export default App
